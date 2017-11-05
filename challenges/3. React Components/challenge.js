@@ -10,12 +10,8 @@ export class TimeAvailabilityPills extends React.Component {
     events: React.PropTypes.arrayOf(React.PropTypes.object),
   };
 
-  render() {
-    //Get array of time increments 
-    let start = this.props.start,
-        end = this.props.end,
-        duration = this.props.duration,
-        events = this.props.events;
+  render() { 
+    let { start, end, duration, events } = this.props;
         
     let freeTimes = findFreeTimes(events[0].start, events[events.length - 1].end, duration, events);
     let getAvailability = (time) => freeTimes.filter((free) => moment(time).isBetween(free.start, free.end)).length > 0;
