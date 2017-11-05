@@ -22,7 +22,7 @@ export class TimeAvailabilityPills extends React.Component {
     let increments = moment(end).diff(moment(start), 'minutes') / duration;
     let timeBlocks = Array.from(new Array(increments), (x, i) => i * duration)
                      .map((mins) => moment(start).clone().add(mins, 'minutes'))
-                     .map((time) => ({ time: time.format('h:mm'), isAvailable: getAvailability(time)}));
+                     .map((time) => ({ time: time.format('h:mm'), isAvailable: getAvailability(time) }));
     
     return (
       <div className='time-availability-pills'>
